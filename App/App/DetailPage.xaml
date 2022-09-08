@@ -4,10 +4,10 @@
              x:Class="App.DetailPage"
              BackgroundColor="White">
     <ScrollView>
-        <StackLayout Padding="10">
+        <StackLayout Padding="20">
             <Label Text="Item Details" FontSize="Large" TextColor="DarkGreen" HorizontalOptions="Center"/>
 
-            <Frame CornerRadius="10">
+
                 <StackLayout>
                     <Image x:Name="Img" 
                        HeightRequest="{OnPlatform iOS=200, Android=260}"
@@ -15,14 +15,34 @@
                        HorizontalOptions="Center"
                        Aspect="Fill"/>
                 </StackLayout>
-            </Frame>
 
-            <StackLayout Orientation="Horizontal">
-                <Label x:Name="Name" FontSize="Large" TextColor="Gold" FontAttributes="Bold" HorizontalOptions="Start"/>
-                <Label x:Name="Price" FontSize="Large" TextColor="Black" HorizontalOptions="End"/>
+
+            <StackLayout Orientation="Vertical">
+                <Label x:Name="Name" 
+                       FontSize="Large" 
+                       TextColor="Gold" 
+                       FontAttributes="Bold" 
+                       HorizontalOptions="Center"/>
+                
+                <Label x:Name="Price" 
+                       FontSize="Large" 
+                       TextColor="Black" 
+                       HorizontalOptions="End"/>
+                
             </StackLayout>
 
-            <Label x:Name="Description" FontSize="Small" TextColor="DarkGray" FontAttributes="Bold" HorizontalOptions="Center"/>
+            <Label x:Name="Description" 
+                   FontSize="Small" 
+                   TextColor="DarkGray" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center"/>
+           
+            <Button Text="Back to Menu" 
+                    TextColor="White"
+                    BackgroundColor="Gold" 
+                    Clicked="Button_Clicked"
+                    CornerRadius="10"
+                    FontAttributes="Bold"/>
 
         </StackLayout>
     </ScrollView>

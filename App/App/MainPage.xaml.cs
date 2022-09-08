@@ -17,7 +17,7 @@ namespace App
         }
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ItemList());
+            await Navigation.PushAsync(new ItemList(), false);
         }
 
         private async void forgotPasswordTapped(object sender, EventArgs e)

@@ -42,7 +42,7 @@ namespace App
             {
                 return;
             }
-            Navigation.PushModalAsync(new DetailPage(e.Item as Items));
+            Navigation.PushModalAsync(new DetailPage(e.Item as Items), false);
         }
     }
 }

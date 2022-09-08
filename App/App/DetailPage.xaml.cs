@@ -24,5 +24,11 @@ namespace App
                 Uri = new Uri(items.ImageThumbnailUrl)
             };
         }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+           // await Navigation.PushAsync(new ItemList(), false);
+            await Navigation.PopToRootAsync();
+        }
     }
 }
