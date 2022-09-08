@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App.LoginPage"
+             BackgroundColor="White"
+             Title="Page 3">
+    <ScrollView>
+        <StackLayout>
+
+            <Frame BackgroundColor="#86cf7e" Padding="30" CornerRadius="0">
+                <Label Text="Login form" HorizontalTextAlignment="Center" TextColor="White" FontSize="35"/>
+            </Frame>
+
+            <StackLayout VerticalOptions="CenterAndExpand" Margin="20,35,20,25">
+                <Entry
+                   HorizontalOptions="Fill"
+                   x:Name="userEntry" 
+                   Placeholder="user" 
+                   FontSize="Medium"
+                   HeightRequest="70"/>
+
+                <Entry
+                   x:Name="passwordEntry" 
+                   Placeholder="password" 
+                   FontSize="Medium"
+                   IsPassword="True"
+                   HeightRequest="70"/>
+            </StackLayout>
+
+            <StackLayout VerticalOptions="CenterAndExpand" Margin="0,0,20,20">
+                <Button 
+                    Text="Sign In" 
+                    TextColor="White"
+                    BackgroundColor="#008721" 
+                    Clicked="Button_Clicked"
+                    HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" Margin="20,35,20,25">
+                <CheckBox IsChecked="true" CheckedChanged="CheckBox_CheckedChanged" HorizontalOptions="Start" Color="#86cf7e" />
+                <Label Margin="0,5,0,0" Text="remember me" TextColor="#acabae"/>
+            </StackLayout>
+
+
+            <Frame BackgroundColor="#86cf7e" Padding="20" CornerRadius="0" />
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

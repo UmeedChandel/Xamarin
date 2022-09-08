@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App.DetailPage"
+             BackgroundColor="White">
+    <ScrollView>
+        <StackLayout Padding="10">
+            <Label Text="Item Details" FontSize="Large" TextColor="DarkGreen" HorizontalOptions="Center"/>
+
+            <Frame CornerRadius="10">
+                <StackLayout>
+                    <Image x:Name="Img" 
+                       HeightRequest="{OnPlatform iOS=200, Android=260}"
+                       WidthRequest="{OnPlatform iOS=200, Android=260}"
+                       HorizontalOptions="Center"
+                       Aspect="Fill"/>
+                </StackLayout>
+            </Frame>
+
+            <StackLayout Orientation="Horizontal">
+                <Label x:Name="Name" FontSize="Large" TextColor="Gold" FontAttributes="Bold" HorizontalOptions="Start"/>
+                <Label x:Name="Price" FontSize="Large" TextColor="Black" HorizontalOptions="End"/>
+            </StackLayout>
+
+            <Label x:Name="Description" FontSize="Small" TextColor="DarkGray" FontAttributes="Bold" HorizontalOptions="Center"/>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App.ItemList"
+             BackgroundColor="LightGray">
+
+    <ListView x:Name="ItemView"
+              Margin="10,10,10,10"
+            ItemsSource="{Binding Items}"
+            ItemTapped="ItemTapped"
+            HasUnevenRows="True"
+            SeparatorVisibility="None"
+            IsPullToRefreshEnabled="True">
+
+        <ListView.Header>
+            <StackLayout>
+                <Label Text=" Menu Items" FontSize="Large" TextColor="DarkGreen" HorizontalTextAlignment="Center" />
+            </StackLayout>
+        </ListView.Header>
+        <ListView.ItemTemplate>
+            <DataTemplate>
+
+                <ViewCell>
+                    <StackLayout Orientation="Vertical" Padding="8" >
+
+                        <Frame CornerRadius="20" BackgroundColor="White" HasShadow="True">
+
+                            <StackLayout Orientation="Horizontal" HeightRequest="150">
+                                
+                                    <Image Source="{Binding ImageThumbnailUrl}"/>
+                                
+                                <StackLayout Orientation="Vertical" Padding="9">
+                                    <Label Text="{Binding Name}"
+                                           TextColor="Black"
+                                           FontSize="Large"
+                                           FontAttributes="Bold"/>
+                                    <Label Text="{Binding ShortDescription}"
+                                           TextColor="DarkGreen"
+                                           FontSize="Large"/>
+                                    <Label Text="{Binding Distance}"
+                                           TextColor="DarkGreen"
+                                           FontSize="Medium"/>
+                                </StackLayout>
+
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </ViewCell>
+
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+
+</ContentPage>
