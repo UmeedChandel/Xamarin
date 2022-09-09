@@ -22,8 +22,7 @@ namespace App
 
         private async void forgotPasswordTapped(object sender, EventArgs e)
         {
-            var email = emailEntry.Text;
-            await DisplayAlert("Forgot Password", "Password reset link is sent to " + email + " email address.", "Done");
+            await Navigation.PushAsync(new Tabbed(), false);
         }
 
         private async void registerTapped(object sender, EventArgs e)

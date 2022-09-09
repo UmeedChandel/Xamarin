@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:App="clr-namespace:App"
+            x:Class="App.Tabbed"
+            Title=" Tabbed Navigation "
+            BarBackgroundColor="White"
+            SelectedTabColor="DarkGreen"
+            UnselectedTabColor="Black"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom">
+        
+    <App:LoginPage Title="Login" IconImageSource="login.png"></App:LoginPage>
+    <App:ItemList Title="List" IconImageSource="list.png" ></App:ItemList>
+    <App:Pratice Title="Controls" IconImageSource="control.png"></App:Pratice>
+</TabbedPage>
+    
+    

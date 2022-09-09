@@ -21,14 +21,12 @@ namespace App
             Description.Text = items.LongDescription;
             Img.Source = new UriImageSource()
             {
-                Uri = new Uri(items.ImageThumbnailUrl)
+                Uri = new Uri(items.ImageUrl)
             };
         }
-
         private async void Button_Clicked(object sender, EventArgs e)
         {
-           // await Navigation.PushAsync(new ItemList(), false);
-            await Navigation.PopToRootAsync();
+            await Navigation.PopAsync();
         }
     }
 }
