@@ -62,7 +62,7 @@
                    TextColor="#ee6b4f">
 
                 <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="forgotPasswordTapped" NumberOfTapsRequired="1" />
+                    <TapGestureRecognizer  Command="{Binding forgotPasswordTapped}"  NumberOfTapsRequired="1" />
                 </Label.GestureRecognizers>
 
             </Label>
@@ -71,7 +71,7 @@
                 Text="Sign In" 
                 TextColor="White"
                 BackgroundColor="#ee6b4f" 
-                Clicked="Button_Clicked" 
+                Command="{Binding Button_Clicked}" 
                 CornerRadius="3" />
 
             <Label Grid.ColumnSpan="2" Grid.Row="8" TextColor="#bdbdbd" FontSize="Small">
@@ -80,7 +80,7 @@
                         <Span  Text="Don't have an account? "  />
                         <Span Text="Register" FontAttributes="Bold">
                             <Span.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="registerTapped" NumberOfTapsRequired="1" />
+                                <TapGestureRecognizer Command="{Binding registerTapped}" NumberOfTapsRequired="1" />
                             </Span.GestureRecognizers>
                         </Span>
                     </FormattedString>

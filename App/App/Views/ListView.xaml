@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App.Views.ListView"
+             BackgroundColor="White">
+
+    <ContentPage.Content>
+        <StackLayout Margin="0,10,0,0">
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+
+            <Label Text="{Binding name}"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+
+            <Button Text="Fetch Data" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center"
+                    BackgroundColor="Orange"
+                    Command="{Binding CallAPI}"/>
+
+            <ListView
+            Margin="10,10,10,10"
+            ItemsSource="{Binding MyList}"
+            HasUnevenRows="True"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand"
+            SeparatorVisibility="None"
+            IsPullToRefreshEnabled="True"
+            SelectionMode="None">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical" Padding="8" >
+
+                                <Frame CornerRadius="20" BackgroundColor="Gray" HasShadow="True">
+
+                                    <StackLayout Orientation="Horizontal">
+
+                                        <Image Source="{Binding avatar}" HeightRequest="100" WidthRequest="100"/>
+
+                                        <StackLayout Orientation="Vertical" Padding="9">
+                                            <Label Text="{Binding first_name}" 
+                                           TextColor="Black"
+                                           FontSize="Large"
+                                           FontAttributes="Bold"/>
+                                            <Label Text="{Binding last_name}"
+                                           TextColor="WhiteSmoke"
+                                           FontSize="Large"/>
+                                            <Label Text="{Binding email}"
+                                           TextColor="white"
+                                           FontSize="Small"/>
+                                        </StackLayout>
+
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </ViewCell>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

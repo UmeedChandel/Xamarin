@@ -1,4 +1,6 @@
-﻿using System;
+﻿using App.ViewModels;
+using App.Views;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -14,8 +16,9 @@ namespace App
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = new MainPageViewModel();
         }
-        private async void Button_Clicked(object sender, EventArgs e)
+        /*private async void Button_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new ItemList(), false);
         }
@@ -28,7 +31,7 @@ namespace App
         private async void registerTapped(object sender, EventArgs e)
         {
             await DisplayAlert("Register", "You'll have to Sign Up.", "Sign Up");
-        }
+        }*/
     }
   
 }
