@@ -2,8 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App.Views.DetailPage"
+             xmlns:local="clr-namespace:App.ViewModels"
              BackgroundColor="White"
              NavigationPage.HasNavigationBar="False">
+
     <ScrollView>
         <StackLayout Padding="20">
             <Label Text="Item Details" FontSize="Large" TextColor="DarkGreen" HorizontalOptions="Center"/>
@@ -11,21 +13,24 @@
 
                 <StackLayout>
                     <Image x:Name="Img" 
-                       HeightRequest="{OnPlatform iOS=200, Android=260}"
-                       WidthRequest="{OnPlatform iOS=200, Android=260}"
-                       HorizontalOptions="Center"
-                       Aspect="Fill"/>
+                           Source="{Binding ImageUrl}"
+                           HeightRequest="{OnPlatform iOS=200, Android=260}"
+                           WidthRequest="{OnPlatform iOS=200, Android=260}"
+                           HorizontalOptions="Center"
+                           Aspect="Fill"/>
                 </StackLayout>
 
 
             <StackLayout Orientation="Vertical">
                 <Label x:Name="Name" 
+                       Text="{Binding Name}"
                        FontSize="Large" 
                        TextColor="Gold" 
                        FontAttributes="Bold" 
                        HorizontalOptions="Center"/>
                 
                 <Label x:Name="Price" 
+                       Text="{Binding Price}"
                        FontSize="Large" 
                        TextColor="Black" 
                        HorizontalOptions="End"/>
@@ -33,6 +38,7 @@
             </StackLayout>
 
             <Label x:Name="Description" 
+                   Text="{Binding Description}"
                    FontSize="Small" 
                    TextColor="DarkGray" 
                    FontAttributes="Bold" 
@@ -41,7 +47,7 @@
             <Button Text="Back to Menu" 
                     TextColor="White"
                     BackgroundColor="Gold" 
-                    Clicked="Button_Clicked"
+                    Command="{Binding Button_Clicked}"
                     CornerRadius="10"
                     FontAttributes="Bold"/>
 

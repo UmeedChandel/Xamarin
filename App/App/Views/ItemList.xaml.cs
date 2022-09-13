@@ -20,14 +20,5 @@ namespace App.Views
             InitializeComponent();
             BindingContext = new ItemListViewModel();
         }
-
-        private void ItemTapped(object sender, ItemTappedEventArgs e)
-        {
-            if(e.Item==null)
-            {
-                return;
-            }
-            Navigation.PushAsync(new DetailPage(e.Item as Items), false);
-        }
     }
 }

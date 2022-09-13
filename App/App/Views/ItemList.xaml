@@ -5,18 +5,16 @@
              BackgroundColor="LightGray"
              Title="Menu Items">
 
-    <ListView Margin="10,10,10,10" 
+    <CollectionView Margin="10,10,10,10" 
               ItemsSource="{Binding ListItems}"
-              ItemTapped="ItemTapped"
-              HasUnevenRows="True" 
-              SeparatorVisibility="None"
-              IsPullToRefreshEnabled="True"
-              SelectionMode="None">
+              SelectedItem="{Binding SelectedItem}"
+              SelectionChangedCommand="{Binding SelectionListChangedCommand}"
+              SelectionMode="Single">
 
-        <ListView.ItemTemplate>
+        <CollectionView.ItemTemplate>
             <DataTemplate>
 
-                <ViewCell>
+                
                     <StackLayout Orientation="Vertical" Padding="8" >
 
                         <Frame CornerRadius="20" BackgroundColor="White" HasShadow="True">
@@ -41,10 +39,10 @@
                             </StackLayout>
                         </Frame>
                     </StackLayout>
-                </ViewCell>
+              
 
             </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
 
 </ContentPage>

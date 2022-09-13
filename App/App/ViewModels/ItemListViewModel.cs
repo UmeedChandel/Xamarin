@@ -1,11 +1,8 @@
 ﻿using App.Models;
 using App.Views;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
 using Xamarin.Forms;
 
 namespace App.ViewModels
@@ -14,6 +11,18 @@ namespace App.ViewModels
     {
         ObservableCollection<Items> items = new ObservableCollection<Items>();
         public ObservableCollection<Items> ListItems { get { return items; } }
+
+        public Command SelectionListChangedCommand { get; }
+
+        private Items _selectedItem { get; set; }
+        public Items SelectedItem {
+            get { return _selectedItem; }
+            set
+            {
+                if(_selectedItem != value)
+                    _selectedItem = value;
+            }
+        }
         public ItemListViewModel()
         {
             items.Add(new Items { Name = "Cheese Burger", ShortDescription = "KFC", Distance = 0.3m, ImageUrl = "https://assets.epicurious.com/photos/5c745a108918ee7ab68daf79/1:1/w_2560%2Cc_limit/Smashburger-recipe-120219.jpg", Price = 100, LongDescription = " A hamburger, or simply burger, is a food consisting of fillings—usually a patty of ground meat, typically beef—placed inside a sliced bun or bread roll." });
@@ -25,8 +34,14 @@ namespace App.ViewModels
             items.Add(new Items { Name = "Margherita Pizza", ShortDescription = "Domino's", Distance = 0.3m, ImageUrl = "https://www.vegrecipesofindia.com/wp-content/uploads/2020/12/margherita-pizza-recipe-1.jpg", Price = 100, LongDescription = "Pizza is a dish of Italian origin consisting of a usually round, flat base of leavened wheat-based dough topped with tomatoes, cheese, and often various other ingredients." });
             items.Add(new Items { Name = "Italian Pizza", ShortDescription = "La Pino'z Pizza", Distance = 0.3m, ImageUrl = "https://cdn.shopify.com/s/files/1/2321/3015/products/delicious_italian_pizza_1_570x570_crop_top.png?v=1504536560", Price = 100, LongDescription = "Pizza is a dish of Italian origin consisting of a usually round, flat base of leavened wheat-based dough topped with tomatoes, cheese, and often various other ingredient." });
 
+            SelectionListChangedCommand = new Command(async () =>
+            {
+                var detailVM = new DetailPageViewModel(SelectedItem);
+                var detail = new DetailPage();
+                detail.BindingContext = detailVM;
+                await Application.Current.MainPage.Navigation.PushAsync(detail);
+            });
         }
-
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
